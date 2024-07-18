@@ -1,0 +1,23 @@
+{
+  "name": "store-tutorial",
+  "description": "",
+  "main": "main.bord",
+  "installs": {
+    "libs": [
+      "BootServer",
+      "WebBundler",
+      "PathLoader",
+      "alter-states"
+    ],
+    "types": [
+      "@types/BootServer",
+      "@types/WebBundler",
+      "@types/PathLoader",
+      "@types/alter-states"
+    ]
+  },
+  "macroes": {
+    "build": "bord --lib bundler",
+    "dev": "bord src/server/server.bord"
+  }
+}

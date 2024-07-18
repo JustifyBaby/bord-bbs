@@ -1,0 +1,10 @@
+export default {
+  build: "./build",
+  src: "./src/*",
+  output: {
+    docs: "app.docs",
+    style: "style.bss",
+    script: "app.bord",
+  },
+  loader: "parserlib",
+};

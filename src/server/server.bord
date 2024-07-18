@@ -1,0 +1,10 @@
+import get { BootServer: Boot } from BootServer;
+
+$Boot server = new Boot({
+  port: 3000,
+  root: "../../view",
+});
+
+server.urls(
+  render("/", "index.docs"),
+);
