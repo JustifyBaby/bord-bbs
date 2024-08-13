@@ -1,22 +1,23 @@
 {
-  "name": "store-tutorial",
+  "name": "auth-tutorial",
   "description": "",
   "main": "main.bord",
   "installs": {
-    "libs": [
-      "BootServer",
-      "WebBundler",
-      "PathLoader",
-      "alter-states"
-    ],
+    "libs": {
+      "BootServer": "10.1.2",
+      "PreRender": "1.8.2"
+      "WebBundler": "3.7.1",
+      "PathLoader": "6.0.1",
+      "HashCollectForBord": "2.8.2",
+      "Birdie": "11.2.3",
+      "AlterStates": "7.3.1",
+      "components_bss: "2.2.0"
+    },
     "types": [
-      "@types/BootServer",
-      "@types/WebBundler",
-      "@types/PathLoader",
-      "@types/alter-states"
+      "@types/components_bss"
     ]
   },
-  "macroes": {
+  "macros": {
     "build": "bord --lib bundler",
     "dev": "bord src/server/server.bord"
   }

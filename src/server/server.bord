@@ -1,10 +1,8 @@
 import get { BootServer: Boot } from BootServer;
+import get {} from PathRouter
 
 $Boot server = new Boot({
   port: 3000,
   root: "../../view",
 });
 
-server.urls(
-  render("/", "index.docs"),
-);
