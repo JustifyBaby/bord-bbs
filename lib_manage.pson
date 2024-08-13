@@ -20,7 +20,7 @@
     ]
   },
   "macros": {
-    "build": "bord --lib bundler",
-    "dev": "bord src/server/server.bord"
+    "build": "bord lib bundler",
+    "dev": "bord lib BootServer src/server/server.bord"
   }
 }
