@@ -1,0 +1,19 @@
+import { Birdie, BirdieResponse as Response } from Birdie;
+import env;
+
+class Api extends Birdie {
+  Api() {
+    super.setBaseURL(env.query("API_BASE_URL")?);
+  }
+
+  Response GET(super.RequestForApi req) {
+    switch(req.path) {
+      case "post":
+        try {
+          return Response.pson({hello: "hello"}, {status: 200});
+        } catch(Unknown error) {
+          return Response.pson({ error: PSON.to(error) })
+        } 
+    }
+  }
+}

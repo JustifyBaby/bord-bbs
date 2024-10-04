@@ -1,0 +1,18 @@
+import { header, list, form } from .layouts
+import { write } from PreRender
+
+write(
+  {
+    className: "header",
+    layout: header
+  },
+  {
+    className: "list",
+    layout: list
+  }
+  {
+    className: "form",
+    layout: form
+  }
+);
+

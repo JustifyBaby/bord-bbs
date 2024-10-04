@@ -1,0 +1,18 @@
+@schema = {
+  id: String #primary #default::createRandomKey();
+  title: String #validation max(255);
+  content: String;
+}
+
+Private {
+  Create Table "Posts" As @schema;
+}
+
+// 権限設定
+Posts Allow ["GET"];
+
+If ( Auth::Root ) {
+  Posts Allow ["POST", "EDIT", "DELETE"];
+}
+
+Query::protocol = "nltt";

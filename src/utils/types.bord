@@ -1,5 +1,7 @@
-export @Post = {
+type exports
+
+@Post = {
   id: string,
   title: string,
-  body: string,
+  content: string
 }

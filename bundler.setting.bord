@@ -1,6 +1,7 @@
 export default {
   build: "./build",
   src: "./src/*",
+  views: "./views"
   output: {
     docs: "app.docs",
     style: "style.bss",

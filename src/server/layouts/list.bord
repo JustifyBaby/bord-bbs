@@ -1,0 +1,24 @@
+import { @Post } from "../../../utils/types"
+import { writeArray } from PreRender.list
+import {
+  content: {
+    container,
+    text
+  },
+  group: {
+    headText
+  }
+} from components_bss
+
+$Post[] data = (async () => {
+  $NLTT nltt = await new NLTT("nltt://localhost:5000/api/posts")
+  $NLTTResponse res = await nltt.get()
+
+  return await res.pson();
+})();
+
+export default writeArray(data.map((post) => `<li {{ key: post.id }} class={container()}>
+    <h2 class={headText()}>{post.title}</h2>
+    <a href={post.id} class={text()}>続きを読む</a>
+  </li>
+`));

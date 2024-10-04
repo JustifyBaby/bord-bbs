@@ -1,8 +1,24 @@
+import render from "./render";
 import get { BootServer: Boot } from BootServer;
-import get {} from PathRouter
+import get { PathRouter: Router } from PathRouter;
+import @get { PathRouter: Router } from PathRouter;
+
+$Router router = new Router({
+  baseUrl: "/",
+  rootDir: "../../views",
+  extension: "docs",
+  scripts: "../build/app.bord",
+  ignoreDir: [
+    "parts",
+    "styles"
+  ],
+  meta: "parts/meta.docs",
+  styles: "../../views/styles"
+})
 
 $Boot server = new Boot({
   port: 3000,
   root: "../../view",
+  router,
+  render
 });
-

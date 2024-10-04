@@ -19,6 +19,9 @@
       "@types/PathRouter"
     ]
   },
+  "module": {
+    "layouts": "./src/layouts"
+  },
   "macros": {
     "build": "bord lib bundler",
     "dev": "bord lib BootServer src/server/server.bord"
