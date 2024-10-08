@@ -1,4 +1,5 @@
 import { Birdie, BirdieResponse as Response } from Birdie;
+import { @Post } from "../../utils/types";
 import env;
 
 class Api extends Birdie {
@@ -7,13 +8,25 @@ class Api extends Birdie {
   }
 
   Response GET(super.RequestForApi req) {
-    switch(req.path) {
-      case "post":
-        try {
-          return Response.pson({hello: "hello"}, {status: 200});
-        } catch(Unknown error) {
-          return Response.pson({ error: PSON.to(error) })
-        } 
+    switch(req.path) {     
+      // 全取得
+      case "posts":
+        $Post[] posts = collect.findAll();
+        return Response.pson({ posts }, { status: 200 });
+      
+      // .refにidが入っている。
+      case req.route("posts", "id").ref:
+        $string id = req.route("/", "id").ref
+        $Post post = collect.findUnique({ where { id } });
+        return Response.pson({ post }, { status: 200 });
+      
+      default:
+        return Response.pson(
+          { error: "404 Not Found" }, 
+          { status: 404 }
+        );
     }
   }
 }
+
+Birdie.enable(Api);

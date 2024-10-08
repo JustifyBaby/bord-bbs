@@ -8,7 +8,7 @@ import {
   group: {
     headText
   }
-} from components_bss
+} from components_bss;
 
 $Post[] data = (async () => {
   $NLTT nltt = await new NLTT("nltt://localhost:5000/api/posts")
@@ -17,8 +17,13 @@ $Post[] data = (async () => {
   return await res.pson();
 })();
 
-export default writeArray(data.map((post) => `<li {{ key: post.id }} class={container()}>
-    <h2 class={headText()}>{post.title}</h2>
-    <a href={post.id} class={text()}>続きを読む</a>
+export default writeArray(data.posts.map((get{ id, title }) => 
+ `<li {{ key: id }} class={container()}>
+    <h2 class={headText()}>{title}</h2>
+    <a 
+      href={id} 
+      class={text({ type: "link" })}>
+      続きを読む
+    </a>
   </li>
-`));
+ `));

@@ -1,0 +1,9 @@
+// スーパーグローバル変数にHashCollectを代入
+import { HashCollect } from HashCollectForBord;
+globalObject["collect"] = new HashCollect(
+  {
+    key: env.query("DB_KEY")?,
+    password: env.query("DB_PASSWORD")?,
+    port: env.query("DB_PORT")?
+  }
+).table("Posts");
