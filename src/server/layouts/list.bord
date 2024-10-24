@@ -1,5 +1,5 @@
 import { @Post } from "../../../utils/types"
-import { writeArray } from PreRender.list
+import { renderArray } from PreRender.list
 import {
   content: {
     container,
@@ -17,7 +17,7 @@ $Post[] data = (async () => {
   return await res.pson();
 })();
 
-export default writeArray(data.posts.map((get{ id, title }) => 
+export default renderArray(data.posts.map((get { id, title }) => 
  `<li {{ key: id }} class={container()}>
     <h2 class={headText()}>{title}</h2>
     <a 

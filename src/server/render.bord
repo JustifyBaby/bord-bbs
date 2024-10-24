@@ -1,7 +1,32 @@
-import { header, list, form } from .layouts
-import { write } from PreRender
+import { header, list, post } from .layouts
+import { render } from PreRender
+import { Form, Validation } from components_bss
 
-write(
+$Validation titleValidation = new Validation({
+  required: true,
+  max: 255,
+})
+
+$Validation contentValidation = new Validation({
+  required: true,
+})
+
+$Form form = new Form({
+  schema: ["title", "content"],
+  labelText: {
+    title: "タイトル",
+    content: "内容",
+  },
+  submitButton: {
+    text: "投稿"
+  },
+  validation: {
+    title: titleValidation,
+    content: contentValidation
+  }
+});
+
+render(
   {
     className: "header",
     layout: header
@@ -9,10 +34,13 @@ write(
   {
     className: "list",
     layout: list
-  }
+  },
+  {
+    className: "post",
+    layout: post
+  },
   {
     className: "form",
     layout: form
   }
 );
-

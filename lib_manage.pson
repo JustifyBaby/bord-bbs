@@ -12,7 +12,7 @@
       "HashCollectForBord": "2.8.2",
       "Birdie": "11.2.3",
       "AlterStates": "7.3.1",
-      "components_bss: "2.2.0"
+      "components_bss": "2.2.0"
     },
     "types": [
       "@types/components_bss",

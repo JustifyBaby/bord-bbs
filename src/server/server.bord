@@ -1,7 +1,7 @@
 import render from "./render";
 import get { BootServer: Boot } from BootServer;
 import get { PathRouter: Router } from PathRouter;
-import @get { PathRouter: Router } from PathRouter;
+import { enableStyle } from components_bss;
 
 $Router router = new Router({
   baseUrl: "/",
@@ -9,16 +9,19 @@ $Router router = new Router({
   extension: "docs",
   scripts: "../build/app.bord",
   ignoreDir: [
-    "parts",
-    "styles"
+    "_parts",
+    "_styles"
   ],
-  meta: "parts/meta.docs",
-  styles: "../../views/styles"
+  meta: "_parts/meta.docs",
+  styles: "../../views/_styles"
 })
 
 $Boot server = new Boot({
   port: 3000,
   root: "../../view",
+  includes: [
+    enableStyle.url
+  ],
   router,
   render
 });
